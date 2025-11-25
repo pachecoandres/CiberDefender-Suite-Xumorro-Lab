@@ -1,0 +1,10 @@
+Login correcto desde 192.168.0.10
+Intento fallido de acceso al servidor
+Tráfico sospechoso detectado en el puerto 8080
+Malware detectado en archivo descargado
+Ping normal ejecutado por el sistema
+Ataque de fuerza bruta detectado en SSH
+Conexión establecida sin problemas
+Archivo potencialmente peligroso detectado
+Usuario ingresó contraseña incorrecta varias veces
+Descarga completada exitosamente

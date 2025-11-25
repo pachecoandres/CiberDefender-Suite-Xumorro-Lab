@@ -1,0 +1,9 @@
+Evento: Ataque de phishing | Clasificación: Evento seguro | Puntaje: 0
+Evento: Ataque de phishing | Clasificación: Evento seguro | Puntaje: 0
+Evento: Malware detectado | Clasificación: Evento seguro | Puntaje: 0
+Evento: Trafico legitimo | Clasificación: Evento seguro | Puntaje: 0
+Evento: Ataque de phishing | Clasificación: Evento seguro | Puntaje: 0
+Evento: Spyware | Clasificación: Evento seguro | Puntaje: 0
+Evento: Spyware | Clasificación: Evento seguro | Puntaje: 0
+Evento: Phishing | Clasificación: Evento seguro | Puntaje: 0
+Evento: Seguro | Clasificación: Evento seguro | Puntaje: 0
