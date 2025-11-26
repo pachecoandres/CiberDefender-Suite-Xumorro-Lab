@@ -71,8 +71,8 @@ public class PANTALLA2 extends javax.swing.JFrame {
             // Animación negativa
             jTable1.setValueAt("❌", fila, columna);
         }
-        lblAciertos.setText("Aciertos: " + aciertos);
-        lblErrores.setText("Errores: " + errores);
+        lblAciertos.setText("ACIERTOS: " + aciertos);
+        lblErrores.setText("ERRORES: " + errores);
         verificarResultado();
         ocultarValoresTabla();
     }

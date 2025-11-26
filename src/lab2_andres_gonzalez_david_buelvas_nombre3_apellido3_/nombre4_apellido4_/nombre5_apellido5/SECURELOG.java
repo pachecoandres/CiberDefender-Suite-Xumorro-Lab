@@ -239,6 +239,7 @@ public class SECURELOG extends javax.swing.JFrame {
             "Aciertos: " + aciertos + "\n" +
             "Errores: " + errores + "\n" +
             "Precisión: " + porcentaje + "%");
+    PuntajesGlobales.modulo4 = aciertos;
     }//GEN-LAST:event_btnClasificarActionPerformed
 
     private void btnResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResumenActionPerformed

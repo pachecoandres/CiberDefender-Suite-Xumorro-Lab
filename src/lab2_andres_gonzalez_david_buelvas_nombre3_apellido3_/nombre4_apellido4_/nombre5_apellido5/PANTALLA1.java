@@ -322,7 +322,8 @@ public class PANTALLA1 extends javax.swing.JFrame {
 
         // Condición de victoria
         if (modeloAmenazas.size() >= 5) {
-            JOptionPane.showMessageDialog(null, "🎉 Red protegida exitosamente");
+            JOptionPane.showMessageDialog(null, "Felicidades, has asegurado la red");
+            PuntajesGlobales.modulo1 = puntaje;
             play = false;
         }
     }//GEN-LAST:event_btnAgregarMouseClicked
