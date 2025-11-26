@@ -10,6 +10,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author HP
@@ -23,14 +26,19 @@ public class SECURELOG extends javax.swing.JFrame {
      */
     public SECURELOG() {
         initComponents();
-        setSize(600,400);
-        setResizable(false);
         setLocationRelativeTo(null);
+        setResizable(false);
         setTitle("Módulo 4 - SecureLog Analyzer");
         modelo = new DefaultTableModel();
         modelo.addColumn("Evento");
         modelo.addColumn("Clasificación");
         tablaLogs.setModel(modelo);
+        tablaLogs.setRowHeight(28);
+        tablaLogs.getColumnModel().getColumn(0).setPreferredWidth(300);
+        tablaLogs.getColumnModel().getColumn(1).setPreferredWidth(120);
+        String[] opciones = {"Normal", "Sospechoso", "Crítico"};
+        JComboBox<String> combo = new JComboBox<>(opciones);
+        tablaLogs.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(combo));
     }
    private String clasificarEvento(String evento) {
         if (evento == null) return "Normal";
@@ -113,10 +121,12 @@ public class SECURELOG extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(600, 400));
         setSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(null);
 
+        tablaLogs.setBackground(new java.awt.Color(51, 51, 51));
+        tablaLogs.setForeground(new java.awt.Color(255, 255, 255));
         tablaLogs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -131,7 +141,7 @@ public class SECURELOG extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tablaLogs);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(92, 110, 419, 166);
+        jScrollPane1.setBounds(50, 90, 500, 210);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,40 +151,40 @@ public class SECURELOG extends javax.swing.JFrame {
 
         btnCargar.setBackground(new java.awt.Color(0, 0, 51));
         btnCargar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCargar.setText("CARGAR");
+        btnCargar.setText("Cargar");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
             }
         });
         getContentPane().add(btnCargar);
-        btnCargar.setBounds(20, 320, 110, 22);
+        btnCargar.setBounds(20, 330, 110, 22);
 
         btnClasificar.setBackground(new java.awt.Color(0, 0, 51));
         btnClasificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnClasificar.setText("CLASIFICAR");
+        btnClasificar.setText("Clasificar");
         btnClasificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClasificarActionPerformed(evt);
             }
         });
         getContentPane().add(btnClasificar);
-        btnClasificar.setBounds(170, 320, 110, 22);
+        btnClasificar.setBounds(170, 330, 110, 22);
 
         btnResumen.setBackground(new java.awt.Color(0, 0, 51));
         btnResumen.setForeground(new java.awt.Color(255, 255, 255));
-        btnResumen.setText("RESUMEN");
+        btnResumen.setText("Resumen");
         btnResumen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResumenActionPerformed(evt);
             }
         });
         getContentPane().add(btnResumen);
-        btnResumen.setBounds(320, 320, 110, 22);
+        btnResumen.setBounds(320, 330, 110, 22);
 
         BtnVolver.setBackground(new java.awt.Color(0, 0, 51));
         BtnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        BtnVolver.setText("VOLVER");
+        BtnVolver.setText("Volver");
         BtnVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnVolverMouseClicked(evt);
@@ -186,7 +196,7 @@ public class SECURELOG extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnVolver);
-        BtnVolver.setBounds(470, 320, 110, 22);
+        BtnVolver.setBounds(470, 330, 110, 22);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FONDO/Gemini_Generated_Image_5xh5pc5xh5pc5xh5.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -202,12 +212,56 @@ public class SECURELOG extends javax.swing.JFrame {
 
     private void btnClasificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasificarActionPerformed
         // TODO add your handling code here:
-        clasificarTodos();
+        if (eventosList.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Primero carga los logs.");
+        return;
+    }
+        int aciertos = 0;
+        int errores = 0;
+          for (int i = 0; i < modelo.getRowCount(); i++) {
+           String evento = (String) modelo.getValueAt(i, 0);
+           String respuestaUsuario = (String) modelo.getValueAt(i, 1);
+        if (respuestaUsuario == null || respuestaUsuario.trim().isEmpty()) {
+            errores++;
+            continue;
+        }
+        String clasificacionReal = clasificarEvento(evento);
+        if (respuestaUsuario.equalsIgnoreCase(clasificacionReal)) {
+            aciertos++;
+        } else {
+            errores++;
+        }
+    }
+        int total = aciertos + errores;
+        int porcentaje = (aciertos * 100) / total;
+    JOptionPane.showMessageDialog(this,
+            "Resultados del jugador:\n\n" +
+            "Aciertos: " + aciertos + "\n" +
+            "Errores: " + errores + "\n" +
+            "Precisión: " + porcentaje + "%");
     }//GEN-LAST:event_btnClasificarActionPerformed
 
     private void btnResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResumenActionPerformed
         // TODO add your handling code here:
-        mostrarResumen();
+        int normales = 0, sospechosos = 0, criticos = 0, vacios = 0;
+          for (int i = 0; i < modelo.getRowCount(); i++) {
+          String c = (String) modelo.getValueAt(i, 1);
+          if (c == null || c.trim().isEmpty()) {
+            vacios++;
+        } else if (c.equals("Normal")) {
+            normales++;
+        } else if (c.equals("Sospechoso")) {
+            sospechosos++;
+        } else if (c.equals("Crítico")) {
+            criticos++;
+        }
+    }
+          JOptionPane.showMessageDialog(this,
+          "Resumen de clasificaciones del usuario:\n\n" +
+          "Normal: " + normales + "\n" +
+          "Sospechoso: " + sospechosos + "\n" +
+          "Crítico: " + criticos + "\n" +
+          "Sin clasificar: " + vacios);
     }//GEN-LAST:event_btnResumenActionPerformed
 
     private void BtnVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnVolverMouseClicked

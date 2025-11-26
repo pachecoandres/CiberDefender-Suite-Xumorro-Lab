@@ -22,10 +22,12 @@ public class CRYPTOBREAKER extends javax.swing.JFrame {
      */
     public CRYPTOBREAKER() {
         initComponents();
+        setPreferredSize(new java.awt.Dimension(600, 400));
+        pack();
+        setLocationRelativeTo(null);
         setResizable(false);
         lblTiempo.setText("Tiempo: 60");
         crearTimer();
-        setLocationRelativeTo(null);
     }
 
     private String desencriptar(char[] m) {
@@ -78,7 +80,7 @@ public class CRYPTOBREAKER extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setResizable(false);
         setSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(null);
 

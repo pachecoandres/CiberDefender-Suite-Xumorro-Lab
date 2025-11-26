@@ -50,6 +50,7 @@ public class Menu_principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1250, 685));
+        setResizable(false);
         setSize(new java.awt.Dimension(1250, 685));
         getContentPane().setLayout(null);
 
@@ -68,7 +69,7 @@ public class Menu_principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir);
-        btnSalir.setBounds(790, 620, 110, 22);
+        btnSalir.setBounds(780, 620, 130, 22);
 
         BtnVerPuntajes.setBackground(new java.awt.Color(0, 0, 51));
         BtnVerPuntajes.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,7 +80,7 @@ public class Menu_principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnVerPuntajes);
-        BtnVerPuntajes.setBounds(550, 620, 180, 22);
+        BtnVerPuntajes.setBounds(540, 620, 180, 22);
 
         BtnAyuda.setBackground(new java.awt.Color(0, 0, 51));
         BtnAyuda.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,7 +91,7 @@ public class Menu_principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnAyuda);
-        BtnAyuda.setBounds(360, 620, 130, 22);
+        BtnAyuda.setBounds(350, 620, 130, 22);
 
         btnModulo1.setBorderPainted(false);
         btnModulo1.setContentAreaFilled(false);

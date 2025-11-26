@@ -17,6 +17,7 @@ public class PANTALLA2 extends javax.swing.JFrame {
      */
     public PANTALLA2() {
         initComponents();
+        jTable1.setEnabled(false);
         setLocationRelativeTo(null);
         setResizable(false);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,6 +233,7 @@ public class PANTALLA2 extends javax.swing.JFrame {
         generarAtaqueAleatorio();
         ocultarValoresTabla();
         actualizarTabla();
+        jTable1.setEnabled(true);
     }//GEN-LAST:event_BtnInicioMouseClicked
 
     private void BtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalirActionPerformed

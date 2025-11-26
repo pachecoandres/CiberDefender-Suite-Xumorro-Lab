@@ -17,7 +17,6 @@ public class AYUDA extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        setSize(825,252);
     }
 
     /**
@@ -38,8 +37,9 @@ public class AYUDA extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(857, 232));
-        setSize(new java.awt.Dimension(857, 232));
+        setPreferredSize(new java.awt.Dimension(847, 252));
+        setResizable(false);
+        setSize(new java.awt.Dimension(847, 252));
         getContentPane().setLayout(null);
 
         BtnVolver.setBackground(new java.awt.Color(0, 0, 51));
@@ -59,25 +59,29 @@ public class AYUDA extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(370, 20, 110, 20);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("PhishHunter: Detecta el Engaño: El programa muestra un arreglo con 10 mensajes, seleccione las que son amenazas.");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(6, 55, 660, 16);
+        jLabel2.setBounds(6, 55, 660, 15);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("FirewallMatrix: La Muralla Digital: Una matriz de 5x5 simboliza puertos de red, seleccione los puertos comprometidos antes de que “el ataque” los infecte.");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(6, 89, 830, 16);
+        jLabel3.setBounds(6, 89, 830, 15);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CryptoBreaker: Desencripta el Código: Se presenta un mensaje cifrado, se debe usar las pistas para descifrarlo antes de que el cronómetro llegue a cero.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(6, 123, 830, 16);
+        jLabel4.setBounds(6, 123, 830, 15);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("SecureLog Analyzer: Detección Forense: El sistema lee un archivo, se debe clasificarlos como Normal, Sospechoso o Crítico según las pistas.");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(6, 157, 780, 16);
+        jLabel5.setBounds(6, 157, 780, 15);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FONDO/Gemini_Generated_Image_5xh5pc5xh5pc5xh5.png"))); // NOI18N
         getContentPane().add(jLabel6);
